@@ -7,23 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40333A1220B02E4F00EE0CC6 /* Booking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40333A1120B02E4F00EE0CC6 /* Booking.swift */; };
+		40333A1420B03AA400EE0CC6 /* BookingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40333A1320B03AA300EE0CC6 /* BookingCell.swift */; };
+		40B645DD20AFF14F001BC266 /* ContentCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B645DC20AFF14F001BC266 /* ContentCache.swift */; };
+		40B645DF20AFF4F2001BC266 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B645DE20AFF4F2001BC266 /* Constants.swift */; };
+		40B645E120B00100001BC266 /* NSManangedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B645E020B00100001BC266 /* NSManangedObject.swift */; };
 		40C9D7C720A1D141006F30FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C9D7C620A1D141006F30FF /* AppDelegate.swift */; };
-		40C9D7C920A1D141006F30FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C9D7C820A1D141006F30FF /* ViewController.swift */; };
-		40C9D7CC20A1D141006F30FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C9D7CA20A1D141006F30FF /* Main.storyboard */; };
 		40C9D7CF20A1D141006F30FF /* CarBooking.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 40C9D7CD20A1D141006F30FF /* CarBooking.xcdatamodeld */; };
 		40C9D7D120A1D141006F30FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C9D7D020A1D141006F30FF /* Assets.xcassets */; };
 		40C9D7D420A1D141006F30FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C9D7D220A1D141006F30FF /* LaunchScreen.storyboard */; };
+		40C9D7DD20A1D1AE006F30FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C9D7DC20A1D1AE006F30FF /* ViewController.swift */; };
+		40C9D7E820A1D219006F30FF /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C9D7E720A1D219006F30FF /* UIColorExtensions.swift */; };
+		40C9D80120A1DA93006F30FF /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C9D80020A1DA93006F30FF /* Car.swift */; };
+		40C9D80920A1DEC5006F30FF /* PopupProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C9D80820A1DEC5006F30FF /* PopupProvider.swift */; };
+		40C9D80F20A1E10E006F30FF /* CarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C9D80E20A1E10E006F30FF /* CarListViewController.swift */; };
+		40C9D81120A1E123006F30FF /* CarDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C9D81020A1E123006F30FF /* CarDetailsViewController.swift */; };
+		40C9D81320A1E31E006F30FF /* CarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C9D81220A1E31E006F30FF /* CarCell.swift */; };
+		40C9D81720A1FBE5006F30FF /* RemoteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C9D81620A1FBE5006F30FF /* RemoteProvider.swift */; };
+		40C9D81920A1FBF6006F30FF /* DatabaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C9D81820A1FBF6006F30FF /* DatabaseProvider.swift */; };
+		40C9D81B20A23D0C006F30FF /* ValueMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C9D81A20A23D0C006F30FF /* ValueMapping.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		40333A1120B02E4F00EE0CC6 /* Booking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booking.swift; sourceTree = "<group>"; };
+		40333A1320B03AA300EE0CC6 /* BookingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingCell.swift; sourceTree = "<group>"; };
+		40B645DC20AFF14F001BC266 /* ContentCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCache.swift; sourceTree = "<group>"; };
+		40B645DE20AFF4F2001BC266 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		40B645E020B00100001BC266 /* NSManangedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSManangedObject.swift; sourceTree = "<group>"; };
 		40C9D7C320A1D141006F30FF /* CarBooking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarBooking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C9D7C620A1D141006F30FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		40C9D7C820A1D141006F30FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		40C9D7CB20A1D141006F30FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		40C9D7CE20A1D141006F30FF /* CarBooking.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CarBooking.xcdatamodel; sourceTree = "<group>"; };
 		40C9D7D020A1D141006F30FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40C9D7D320A1D141006F30FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40C9D7D520A1D141006F30FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40C9D7DC20A1D1AE006F30FF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		40C9D7E720A1D219006F30FF /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		40C9D80020A1DA93006F30FF /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		40C9D80820A1DEC5006F30FF /* PopupProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupProvider.swift; sourceTree = "<group>"; };
+		40C9D80E20A1E10E006F30FF /* CarListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListViewController.swift; sourceTree = "<group>"; };
+		40C9D81020A1E123006F30FF /* CarDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsViewController.swift; sourceTree = "<group>"; };
+		40C9D81220A1E31E006F30FF /* CarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarCell.swift; sourceTree = "<group>"; };
+		40C9D81620A1FBE5006F30FF /* RemoteProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteProvider.swift; sourceTree = "<group>"; };
+		40C9D81820A1FBF6006F30FF /* DatabaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProvider.swift; sourceTree = "<group>"; };
+		40C9D81A20A23D0C006F30FF /* ValueMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueMapping.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +63,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		40B645DB20AFF131001BC266 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				40B645DC20AFF14F001BC266 /* ContentCache.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
 		40C9D7BA20A1D141006F30FF = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +90,76 @@
 		40C9D7C520A1D141006F30FF /* CarBooking */ = {
 			isa = PBXGroup;
 			children = (
+				40C9D80720A1DEB6006F30FF /* Helpers */,
+				40C9D7E620A1D1FF006F30FF /* Extensions */,
+				40C9D7DE20A1D1B9006F30FF /* Data */,
+				40C9D7DB20A1D1AE006F30FF /* UI */,
 				40C9D7C620A1D141006F30FF /* AppDelegate.swift */,
-				40C9D7C820A1D141006F30FF /* ViewController.swift */,
-				40C9D7CA20A1D141006F30FF /* Main.storyboard */,
 				40C9D7D020A1D141006F30FF /* Assets.xcassets */,
 				40C9D7D220A1D141006F30FF /* LaunchScreen.storyboard */,
 				40C9D7D520A1D141006F30FF /* Info.plist */,
 				40C9D7CD20A1D141006F30FF /* CarBooking.xcdatamodeld */,
 			);
 			path = CarBooking;
+			sourceTree = "<group>";
+		};
+		40C9D7DB20A1D1AE006F30FF /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				40C9D7DC20A1D1AE006F30FF /* ViewController.swift */,
+				40C9D80E20A1E10E006F30FF /* CarListViewController.swift */,
+				40C9D81020A1E123006F30FF /* CarDetailsViewController.swift */,
+				40C9D81220A1E31E006F30FF /* CarCell.swift */,
+				40333A1320B03AA300EE0CC6 /* BookingCell.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		40C9D7DE20A1D1B9006F30FF /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				40B645DB20AFF131001BC266 /* Content */,
+				40C9D81520A1FBD6006F30FF /* Services */,
+				40C9D7E920A1D6F6006F30FF /* Models */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		40C9D7E620A1D1FF006F30FF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				40C9D7E720A1D219006F30FF /* UIColorExtensions.swift */,
+				40B645E020B00100001BC266 /* NSManangedObject.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		40C9D7E920A1D6F6006F30FF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				40C9D80020A1DA93006F30FF /* Car.swift */,
+				40333A1120B02E4F00EE0CC6 /* Booking.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		40C9D80720A1DEB6006F30FF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				40C9D80820A1DEC5006F30FF /* PopupProvider.swift */,
+				40C9D81A20A23D0C006F30FF /* ValueMapping.swift */,
+				40B645DE20AFF4F2001BC266 /* Constants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		40C9D81520A1FBD6006F30FF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				40C9D81620A1FBE5006F30FF /* RemoteProvider.swift */,
+				40C9D81820A1FBF6006F30FF /* DatabaseProvider.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +222,6 @@
 			files = (
 				40C9D7D420A1D141006F30FF /* LaunchScreen.storyboard in Resources */,
 				40C9D7D120A1D141006F30FF /* Assets.xcassets in Resources */,
-				40C9D7CC20A1D141006F30FF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +232,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40C9D7C920A1D141006F30FF /* ViewController.swift in Sources */,
+				40C9D7DD20A1D1AE006F30FF /* ViewController.swift in Sources */,
+				40333A1220B02E4F00EE0CC6 /* Booking.swift in Sources */,
 				40C9D7CF20A1D141006F30FF /* CarBooking.xcdatamodeld in Sources */,
+				40C9D81120A1E123006F30FF /* CarDetailsViewController.swift in Sources */,
+				40B645E120B00100001BC266 /* NSManangedObject.swift in Sources */,
+				40C9D80120A1DA93006F30FF /* Car.swift in Sources */,
 				40C9D7C720A1D141006F30FF /* AppDelegate.swift in Sources */,
+				40333A1420B03AA400EE0CC6 /* BookingCell.swift in Sources */,
+				40C9D80920A1DEC5006F30FF /* PopupProvider.swift in Sources */,
+				40C9D81B20A23D0C006F30FF /* ValueMapping.swift in Sources */,
+				40C9D81920A1FBF6006F30FF /* DatabaseProvider.swift in Sources */,
+				40C9D7E820A1D219006F30FF /* UIColorExtensions.swift in Sources */,
+				40B645DD20AFF14F001BC266 /* ContentCache.swift in Sources */,
+				40C9D81320A1E31E006F30FF /* CarCell.swift in Sources */,
+				40B645DF20AFF4F2001BC266 /* Constants.swift in Sources */,
+				40C9D81720A1FBE5006F30FF /* RemoteProvider.swift in Sources */,
+				40C9D80F20A1E10E006F30FF /* CarListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		40C9D7CA20A1D141006F30FF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				40C9D7CB20A1D141006F30FF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		40C9D7D220A1D141006F30FF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -287,6 +387,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R63H5582LG;
 				INFOPLIST_FILE = CarBooking/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,6 +406,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R63H5582LG;
 				INFOPLIST_FILE = CarBooking/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
