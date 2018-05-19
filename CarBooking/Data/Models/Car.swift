@@ -10,6 +10,7 @@
 import Foundation
 import CoreData
 
+/// object in which all car data is stored
 class Car: NSManagedObject {
   @NSManaged public var basicDescription: String?
   @NSManaged public var fullDescription: String?

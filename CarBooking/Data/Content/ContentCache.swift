@@ -16,6 +16,11 @@ class ContentCache<T: AnyObject> {
   /// object data cache
   let cache = NSCache<AnyObject, T>()
 
+  /// Downloads and adds the object to the cache
+  ///
+  /// - Parameters:
+  ///   - path: the path from where to download the data
+  ///   - completion: called when download is complete and passes on the downloaded data in correct type if possible
   func addObject(path: String, completion: @escaping (T?) -> Void) {
     let key = path as AnyObject
     if let object = cache.object(forKey: key) {
@@ -49,6 +54,7 @@ class ContentCache<T: AnyObject> {
     activeProviders.append(api)
   }
   
+  /// rests all data
   func reset() {
     for api in activeProviders {
       api.cancel()
