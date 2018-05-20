@@ -40,6 +40,11 @@ class CarDetailsViewController: UIViewController {
     view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     setupView()
   }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    loadData()
+  }
 
   /// setup view objects
   private func setupView() {
@@ -50,9 +55,39 @@ class CarDetailsViewController: UIViewController {
       tableView.dataSource = self
       tableView.estimatedRowHeight = UITableViewAutomaticDimension
       tableView.register(CarCell.self, forCellReuseIdentifier: CarCell.identifier)
+      tableView.register(CarDescriptionCell.self, forCellReuseIdentifier: CarDescriptionCell.identifier)
       tableView.register(BookingCell.self, forCellReuseIdentifier: BookingCell.identifier)
       tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
       view.addSubview(tableView)
+    }
+  }
+  
+  private func loadData() {
+    let carID = car.id
+    let baseURL = "http://job-applicants-dummy-api.kupferwerk.net.s3.amazonaws.com/api/"
+    let api = RemoteProvider(path: baseURL + "cars/\(carID).json")
+    api.execute { (data, _) in
+      // handle response
+      if let data = data {
+        do {
+          let json = try JSONSerialization.jsonObject(with: data, options: [.mutableContainers, .allowFragments])
+          if let dict = json as? Dictionary<String, Any> {
+            // update data
+            self.car.name <- dict["name"]
+            self.car.basicDescription <- dict["shortDescription"]
+            self.car.fullDescription <- dict["description"]
+            if let path = dict["image"] as? String {
+              self.car.imagePath = baseURL + path
+            }
+            // save db changes
+            self.db.save()
+            // reload table
+            self.tableView.reloadData()
+          }
+        } catch let error {
+          print(error.localizedDescription)
+        }
+      }
     }
   }
 }
@@ -60,20 +95,18 @@ class CarDetailsViewController: UIViewController {
 //MARK:- UITableViewDelegate, UITableViewDataSource
 extension CarDetailsViewController: UITableViewDelegate, UITableViewDataSource {
   func numberOfSections(in tableView: UITableView) -> Int {
-    var count = 1
-    if allowBooking {
-      count += 1
-    }
-    return count
+    return 1
   }
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 1
+    var count = 2
+    if allowBooking { count += 1 }
+    return count
   }
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return UITableViewAutomaticDimension
   }
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    switch indexPath.section {
+    switch indexPath.row {
     case 0:
       // car cell
       let cell = tableView.dequeueReusableCell(withIdentifier: CarCell.identifier, for: indexPath) as! CarCell
@@ -96,18 +129,8 @@ extension CarDetailsViewController: UITableViewDelegate, UITableViewDataSource {
       // set name
       cell.textLabel?.text = car.name
       // set short description
-      var text: String
-      if let description = car.fullDescription ?? car.basicDescription {
-        text = description
-      } else {
-        text = ""
-      }
       if let booking = car.booking {
-        if text == "" {
-          text = "Booked"
-        } else {
-          text += "\n\n" + "Booked"
-        }
+        var text = "Booked"
         if let startDate = booking.startDate, let endDate = booking.endDate {
           let formatter = DateFormatter()
           formatter.calendar = Calendar.current
@@ -116,14 +139,19 @@ extension CarDetailsViewController: UITableViewDelegate, UITableViewDataSource {
           formatter.dateStyle = .long
           text += " from \(formatter.string(from: startDate)) to \(formatter.string(from: endDate))"
         }
+        cell.detailTextLabel?.numberOfLines = 2
+        cell.detailTextLabel?.text = text
+      } else {
+        cell.detailTextLabel?.numberOfLines = 1
+        cell.detailTextLabel?.text = nil
       }
-      let attr = NSMutableAttributedString(string: text,
-                                           attributes: [NSAttributedStringKey.foregroundColor: UIColor.secondary,
-                                                        NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)])
-      cell.detailTextLabel?.attributedText = attr
-      cell.detailTextLabel?.numberOfLines = 0
       return cell
     case 1:
+      // description cell
+      let cell = tableView.dequeueReusableCell(withIdentifier: CarDescriptionCell.identifier, for: indexPath) as! CarDescriptionCell
+      cell.detailTextLabel?.text = car.fullDescription ?? car.basicDescription
+      return cell
+    case 2:
       // booking cell
       let cell = tableView.dequeueReusableCell(withIdentifier: BookingCell.identifier, for: indexPath) as! BookingCell
       cell.bookingButton.addTarget(self, action: #selector(bookingButtonAction), for: .touchUpInside)
@@ -139,7 +167,7 @@ extension CarDetailsViewController {
   
   /// add/update car booking object
   @objc private func bookingButtonAction() {
-    if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? BookingCell {
+    if let cell = tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as? BookingCell {
       // add booking data
       var booking = car.booking
       if booking == nil {

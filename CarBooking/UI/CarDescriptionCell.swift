@@ -1,5 +1,5 @@
 //
-//  CarCell.swift
+//  CarDescriptionCell.swift
 //  CarBooking
 //
 //  Created by Bastian Kohlbauer on 08.05.18.
@@ -8,12 +8,13 @@
 
 import UIKit
 
-class CarCell: UITableViewCell {
+class CarDescriptionCell: UITableViewCell {
   
-  static let identifier = "CarCell"
+  static let identifier = "CarDescriptionCell"
 
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+    selectionStyle = .none
     setupView()
   }
   
@@ -21,19 +22,10 @@ class CarCell: UITableViewCell {
     fatalError("init(coder:) has not been implemented")
   }
   
-  override func layoutSubviews() {
-    super.layoutSubviews()
-    if let imageView = imageView {
-      imageView.layer.cornerRadius = min(imageView.bounds.width, imageView.bounds.height)/2.0
-    }
-  }
-  
   /// setup view objects
   private func setupView() {
-    textLabel?.textColor = UIColor.secondary
+    textLabel?.textColor = UIColor.primary
     detailTextLabel?.textColor = UIColor.secondary
-    detailTextLabel?.adjustsFontSizeToFitWidth = true
-    imageView?.contentMode = .scaleAspectFill
-    imageView?.layer.masksToBounds = true
+    detailTextLabel?.numberOfLines = 0
   }
 }
