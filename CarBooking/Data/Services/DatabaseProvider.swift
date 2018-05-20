@@ -32,7 +32,7 @@ class DatabaseProvider {
   /// - Parameter predicate: the predicate of the fetch request
   /// - Returns: all the `NSManagedObject` instances that satisfy the predicate
   func fetchAll<T: NSManagedObject>(predicate: NSPredicate? = nil) -> [T]? {
-    let context = appDelegate.persistentContainer.viewContext
+    let context = appDelegate.managedObjectContext
     let request = NSFetchRequest<NSFetchRequestResult>(entityName: T.entityName())
     request.predicate = predicate
     do {
@@ -49,11 +49,10 @@ class DatabaseProvider {
   /// - Parameter values: key value pairs that should ba added to the `NSManagedObject` instance
   /// - Returns: successfully inserted instance of `NSManagedObject`
   func insertOne<T: NSManagedObject>() -> T? {
-    let context = appDelegate.persistentContainer.viewContext
-    guard let entity = NSEntityDescription.entity(forEntityName: T.entityName(), in: context) else {
+    let context = appDelegate.managedObjectContext
+    guard let object = NSEntityDescription.insertNewObject(forEntityName: T.entityName(), into: context) as? T else {
       return nil
     }
-    let object = T(entity: entity, insertInto: context)
     if save() {
       return object
     }
