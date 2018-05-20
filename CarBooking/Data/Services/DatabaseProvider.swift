@@ -35,6 +35,7 @@ class DatabaseProvider {
     let context = appDelegate.managedObjectContext
     let request = NSFetchRequest<NSFetchRequestResult>(entityName: T.entityName())
     request.predicate = predicate
+    request.returnsObjectsAsFaults = false
     do {
       let result = try context.fetch(request)
       return result as? [T]

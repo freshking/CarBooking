@@ -15,7 +15,7 @@ infix operator <-
 ///   - left: instance to be mapped
 ///   - right: optional mapping value
 func <- <T>(left: inout T, right: Any?) {
-  if right is T {
+  if right != nil && right is T {
     left = right as! T
   } else {
     ()
@@ -28,5 +28,9 @@ func <- <T>(left: inout T, right: Any?) {
 ///   - left: optional instance to be mapped
 ///   - right: optional mapping value
 func <- <T>(left: inout T?, right: Any?) {
-  left = right as? T
+  if right != nil {
+    left = right as? T
+  } else {
+    ()
+  }
 }
