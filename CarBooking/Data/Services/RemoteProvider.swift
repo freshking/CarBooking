@@ -37,8 +37,9 @@ class RemoteProvider {
     // setup alert overlay
     if showIndicator == true && alert == nil {
       alert = UIAlertController(title: "Fetching data…", message: nil, preferredStyle: .alert)
-      alert?.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
-        self.session?.cancel()
+      alert?.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak self] (action) in
+        self?.session?.cancel()
+        completion(nil, "Request cancelled")
       }))
       UIApplication.shared.windows.first?.rootViewController?.present(alert!, animated: true, completion: nil)
     }

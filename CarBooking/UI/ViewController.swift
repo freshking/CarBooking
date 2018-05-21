@@ -67,9 +67,9 @@ class ViewController: UITabBarController {
   @objc private func fetchData() {
     api?.cancel()
     api = RemoteProvider(path: "http://job-applicants-dummy-api.kupferwerk.net.s3.amazonaws.com/api/cars.json")
-    api?.execute { (data, error) in
+    api?.execute { [weak self] (data, error) in
       // hide refresh control
-      self.currentViewController?.refreshControl.endRefreshing()
+      self?.currentViewController?.refreshControl.endRefreshing()
       // handle response
       if let error = error {
         PopupProvider.show(title: "Error", message: error)
@@ -81,10 +81,10 @@ class ViewController: UITabBarController {
               for dict in json {
                 if let id = dict["id"] as? Int64 {
                   let predicate = NSPredicate(format: "id == %i", id)
-                  var car: Car? = self.db.fetchOne(predicate: predicate)
+                  var car: Car? = self?.db.fetchOne(predicate: predicate)
                   if car ==  nil {
                     // car does not exist in db. insert new one.
-                    car = self.db.insertOne()
+                    car = self?.db.insertOne()
                   }
                   if let car = car {
                     car.id = id
@@ -96,9 +96,9 @@ class ViewController: UITabBarController {
                 }
               }
               // save db changes
-              self.db.save()
+              self?.db.save()
               // update cars list
-              self.updateData()
+              self?.updateData()
             } else {
               PopupProvider.show(title: "Error", message: "Data format error.")
             }

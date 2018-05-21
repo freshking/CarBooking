@@ -66,23 +66,23 @@ class CarDetailsViewController: UIViewController {
     let carID = car.id
     let baseURL = "http://job-applicants-dummy-api.kupferwerk.net.s3.amazonaws.com/api/"
     let api = RemoteProvider(path: baseURL + "cars/\(carID).json")
-    api.execute { (data, _) in
+    api.execute { [weak self] (data, _) in
       // handle response
       if let data = data {
         do {
           let json = try JSONSerialization.jsonObject(with: data, options: [.mutableContainers, .allowFragments])
-          if let dict = json as? Dictionary<String, Any> {
+          if let dict = json as? Dictionary<String, Any>, let strongCar = self?.car {
             // update data
-            self.car.name <- dict["name"]
-            self.car.basicDescription <- dict["shortDescription"]
-            self.car.fullDescription <- dict["description"]
+            strongCar.name <- dict["name"]
+            strongCar.basicDescription <- dict["shortDescription"]
+            strongCar.fullDescription <- dict["description"]
             if let path = dict["image"] as? String {
-              self.car.imagePath = baseURL + path
+              strongCar.imagePath = baseURL + path
             }
             // save db changes
-            self.db.save()
+            self?.db.save()
             // reload table
-            self.tableView.reloadData()
+            self?.tableView.reloadData()
           }
         } catch let error {
           print(error.localizedDescription)
